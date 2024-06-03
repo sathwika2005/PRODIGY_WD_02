@@ -1,0 +1,61 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+body{
+  width:100%;
+  height:100vh;
+  background-image: url(./assests/images/background-image.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+}
+
+.container{
+  padding: 1rem;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.time {
+  padding: 1rem 0;
+  font-size: 8rem;
+  color:antiquewhite;
+}
+
+
+h1{
+  font-size:4rem;
+  color:antiquewhite;
+}
+
+p {
+  color:black
+}
+
+button {
+  padding: 0.8rem 1rem;
+  margin: 0 0.2rem;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+button:hover {
+  background-color: lightskyblue;
+  color: aliceblue;
+}
+
+#laps {
+  color: white;
+}
+
+.laps {
+  min-height: 100px; 
+}

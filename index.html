@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Watch</title>
+  <link rel="stylesheet" href="./style.css" /> 
+</head>
+<body>
+  <div class="container">
+    <h1>Stop Watch</h1>
+    <p class="time">
+      <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
+    </p>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+    <button id="lap">Lap</button>
+    <div class="laps" id="laps"></div>
+  </div>
+</body>
+
+<script>
+  let minutes = 0o0;
+  let seconds = 0o0;
+  let tens = 0o0;
+  let interval;
+  const appendMinutes = document.getElementById('minutes');
+  const appendSeconds = document.getElementById('seconds');
+  const appendTens = document.getElementById('tens');
+  const startButton = document.getElementById('start');
+  const stopButton = document.getElementById('stop');
+  const resetButton = document.getElementById('reset');
+  const lapButton = document.getElementById('lap');
+  const lapsContainer = document.getElementById('laps');
+
+  startButton.addEventListener('click', () => {
+    clearInterval(interval);
+    interval = setInterval(startTimer, 10);
+  });
+
+  stopButton.addEventListener('click', () => {
+    clearInterval(interval);
+  });
+
+  resetButton.addEventListener('click', () => {
+    clearInterval(interval);
+    tens = "00";
+    seconds = "00";
+    minutes = "00";
+    appendTens.innerHTML = tens;
+    appendSeconds.innerHTML = seconds;
+    appendMinutes.innerHTML = minutes;
+    lapsContainer.innerHTML = "";
+  });
+
+  lapButton.addEventListener('click', () => {
+    const lapTime = `${appendMinutes.innerHTML}:${appendSeconds.innerHTML}:${appendTens.innerHTML}`;
+    const lapDiv = document.createElement('div');
+    lapDiv.innerText = `Lap: ${lapTime}`;
+    lapsContainer.appendChild(lapDiv);
+  });
+
+  function startTimer() {
+    tens++;
+    if(tens <= 9) {
+      appendTens.innerHTML = "0" + tens;
+    }
+    if (tens > 9) {
+      appendTens.innerHTML = tens;
+    } 
+    if (tens > 99) {
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+    }
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    }
+    if (seconds > 59) {
+      minutes++;
+      appendMinutes.innerHTML = "0" + minutes;
+      seconds = 0;
+      appendSeconds.innerHTML = "0" + 0;
+    }
+    if (minutes > 9){
+      appendMinutes.innerHTML = minutes;
+    }
+  }
+</script>
+</html>
