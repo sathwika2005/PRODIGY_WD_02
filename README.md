@@ -18,13 +18,6 @@ JavaScript: For adding functionality to the stopwatch.
 You need a web browser to run the stopwatch. Any modern web browser like Chrome, Firefox, Safari, or Edge will work.
 
 🔧 Installation
-Clone the repository
-
-git clone https://github.com/yourusername/stopwatch-project.git
-
-Navigate to the project directory
-
-cd stopwatch-project
 
 Open the index.html file in your browser:
 You can simply double-click the index.html file.
